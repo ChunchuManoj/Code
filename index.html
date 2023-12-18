@@ -3,240 +3,34 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Prim's Algorithm Java Program</title>
+    <title>Java Programs</title>
     <style>
         body {
             font-family: 'Courier New', monospace;
-            white-space: pre-wrap;
             margin: 20px;
+        }
+        code {
+            display: block;
+            white-space: pre-wrap;
+            background-color: #f4f4f4;
+            padding: 10px;
+            border-radius: 5px;
+            margin-bottom: 20px;
         }
     </style>
 </head>
 <body>
-WEEK-5:
-Write the RC4 logic in Java Using Java cryptography; encrypt the text" Hello world " using Blowfish. Create your own key using Java key tool.
 
-HARDWARE AND SOFTWARE REQUIREMENT:
-1. Intel based Desktop PC: - RAM of 512 MB
-2. Notepad/Notepad ++ editor and Command Prompt
-3. IntelliJ IDEA Community Edition
+<h1>Java Programs</h1>
 
-THEORY: 
-->  RC4– this algorithm is used to create pseudo-random stream of bits (a key-stream). As with any stream cipher, keystreams can be used for encryption.
-->  A  stream cipher  is a  symmetric key  cipher  where plaintext digits one at a time are XORed with corresponding digits of pseudorandom  stream of bits (keystream)
-to create encrypted message i.e. ciphertext.
--> RC4 is mostly used in protocols such as : 1) Secure  Socket Layer (SSL)  to establish an encrypted link between a web server and a browser to ensure all data transmitted  remain private and generally used by many websites to protect their online transaction with their customers comparable to as in Wired Network (LAN).
--> Blowfish is also an encryption technique which is replacement to DES algorithm and that is  very powerful ammunition against hackers and cyber-criminals. It is utilized in a wide array of products like in performance-constrained environments such as embedded systems, secure E-mail encryption tools, backup software, password management tools.
-
-CODE:
-
-import javax.crypto.Cipher;
-import javax.crypto.KeyGenerator;
-import javax.crypto.SecretKey;
-import javax.swing.JOptionPane;
-
-public class BlowFishCipher{
-    public static void main(String[]args) throws Exception{
-
-    //create a keygenerator based upon the
-     KeyGenerator keygenerator= KeyGenerator.getInstance("Blowfish");
-
-    //create a key
-    SecretKey secretkey=keygenerator.generateKey();
-
-    //create a cipher based upon Blowfish
-     Cipher cipher=Cipher.getInstance("Blowfish");
-
-     //initialise cipher to with secretkey
-     cipher.init(Cipher.ENCRYPT_MODE,secretkey);
-
-     //get the text to encrypt
-        String inputText = "Hello world";
-
-        //encrypt message
-        byte[] encrypted=cipher.doFinal(inputText.getBytes());
-
-        //re-initialise the cipher to be in decrypt mode
-        cipher.init(Cipher.DECRYPT_MODE,secretkey);
-
-        //decrypt message
-        byte[] decrypted=cipher.doFinal(encrypted);
-
-        //and display the results
-
-        System.out.println("Original String: " + inputText);
-        System.out.println("Encrypted: " + new String(encrypted));
-        System.out.println("Decrypted: " + new String(decrypted));
-}
-}
-
-    WEEK-6:
-Write a C/JAVA program to implement the Rijndael algorithm logic.
-
-Hardware and Software Requirements:
-1. Intel based Desktop PC: - RAM of 512 MB
-2. Notepad/Notepad ++ editor
-3. IntelliJ IDEA Community Edition
-
-Theory:
--> Rijndael is advanced version of AES(which is defined for fixed block size i.e.128 bit) which defined for variable length block sizes i.e.128,192 and 256 bits.
--> If a different block size between encryption and decryption is used, then it is not possible to recover the original plaintext.
--> The Rijndael algorithm is a new generation symmetric encryption algorithm.
--> It is block cipher algorithm data handling happened in 128-bits blocks,variable key length and variable round number.
--> Encryption under Rijndael is achieved through a series of matrix transformations. Each transformation is known as a round.
--> Rijndael does not use a fixed number of rounds, the number of rounds are dependant on key/block sizes, as follows:
-        -> For Key/block size 128 bits, 9 rounds are required.
-        -> For Key/block size 192 bits, 11 rounds are required.
-        -> For Key/block size 256 bits, 13 rounds are required.
-        
-Program:
-import javax.crypto.*;
-import javax.crypto.spec.*;
-
-class rijndael
-{
-
-private static String asHex(byte buf[]) 
-{
-   StringBuffer strbuf = new StringBuffer(buf.length*2);
-    int i;
-    for(i=0;i<buf.length;i++) 
-    {
-        if(((int)buf[i]&0xff)<0x10)
-        strbuf.append("0");
-        strbuf.append(Long.toString((int)buf[i]&0xff,16));
-    }
- return strbuf.toString();
-}
-
-public static void main(String[]args) throws Exception 
-{
-    String message = "Cyrptography and Network Security";
-    
-    //Get the KeyGenerator
-    KeyGenerator kgen= KeyGenerator.getInstance("AES");
-    
-    kgen.init(128); //192 and 256 bits may not be available
-    
-    //Generate the secret key specs.
-    
-    SecretKey skey = kgen.generateKey();
-    byte[] raw = skey.getEncoded();
-    SecretKeySpec skeySpec= new SecretKeySpec(raw,"AES");
-    
-    // Instantiate the cipher
-    Cipher cipher = Cipher.getInstance("AES");
-    cipher.init(Cipher.ENCRYPT_MODE,skeySpec);
-    byte[] encrypted= cipher.doFinal((args.length==0? message:args[0]).getBytes());
-    System.out.println("Encrypted String: " + asHex(encrypted));
-    cipher.init(Cipher.DECRYPT_MODE,skeySpec);
-    byte[]original=cipher.doFinal(encrypted);
-    String originalString=new String(original);
-    System.out.println("Original String in Hexadecimal: " + asHex(original));
-    System.out.println("Original String: " + originalString);
-  }
-}
-        Theory:
-RSA algorithm is an asymmetric cryptography algorithm. Asymmetric means that it works on two different keys i.e. Public Key and Private Key. As the name suggests that the Public Key is given to everyone and Private Key is kept private.
-
-Algorithm:
-Step 1 : Choose two prime numbers p and q.
-Step 2 : Calculate n = p*q
-Step 3 : Calculate  ϕ(n) = (p – 1) * (q – 1)
-Step 4 : Choose e such that gcd(e , ϕ(n) ) = 1
-Step 5 : Calculate d such that e*d mod ϕ(n) = 1
-Step 6 : Public Key {e,n} Private Key {d,n}
-Step 7 : Cipher text C = P pow e mod n  where P = plaintext
-Step 8 : For Decryption D = D pow d mod n where D will give back the plaintext.
-
-Program: 
-import java.io.DataInputStream;
-import java.io.IOException;
-import java.math.BigInteger;
-import java.util.Random;
- 
-public class RSA
-{
-    private BigInteger P;
-    private BigInteger Q;
-    private BigInteger N;
-    private BigInteger PHI;
-    private BigInteger e;
-    private BigInteger d;
-    private int maxLength = 1024;
-    private Random R;
- 
-    public RSA()
-    {
-        R = new Random();
-        P = BigInteger.probablePrime(maxLength, R);
-        Q = BigInteger.probablePrime(maxLength, R);
-        N = P.multiply(Q);
-       PHI = P.subtract(BigInteger.ONE).multiply(  Q.subtract(BigInteger.ONE));
-        e = BigInteger.probablePrime(maxLength / 2, R);
-        while (PHI.gcd(e).compareTo(BigInteger.ONE) > 0 && e.compareTo(PHI) < 0)
-        {
-            e.add(BigInteger.ONE);
-        }
-        d = e.modInverse(PHI);
-    }
- 
-    public RSA(BigInteger e, BigInteger d, BigInteger N)
-
-    {
-        this.e = e;
-        this.d = d;
-        this.N = N;
-    }
- 
-    public static void main (String [] arguments) throws IOException
-    {
-        RSA rsa = new RSA();
-        DataInputStream input = new DataInputStream(System.in);
-        String inputString;
-        System.out.println("Enter message you wish to send.");
-        inputString = input.readLine();
-        System.out.println("Encrypting the message: " + inputString);
-        System.out.println("The message in bytes is:: "
-                + bToS(inputString.getBytes()));
-        // encryption
-        byte[] cipher = rsa.encryptMessage(inputString.getBytes());
-        // decryption
-        byte[] plain = rsa.decryptMessage(cipher);
-        System.out.println("Decrypting Bytes: " + bToS(plain));
-        System.out.println("Plain message is: " + new String(plain));
-    }
- 
-    private static String bToS(byte[] cipher)
-    {
-        String temp = "";
-        for (byte b : cipher)
-        {
-            temp += Byte.toString(b);
-        }
-        return temp;
-    }
- 
-    // Encrypting the message
-    public byte[] encryptMessage(byte[] message)
-
-    {
-        return (new BigInteger(message)).modPow(e, N).toByteArray();
-    }
- 
-    // Decrypting the message
-    public byte[] decryptMessage(byte[] message)
-    {
-        return (new BigInteger(message)).modPow(d, N).toByteArray();
-    }
-}
- 9. Write a program to implement the Diffie-Hellman Key Exchange mechanism using HTML and Javascript.
+<code>
+9. Write a program to implement the Diffie-Hellman Key Exchange mechanism using HTML and Javascript.
 Theory:
 Diffie-Hellman key exchange is a method of digital encryption that securely exchanges cryptographic keys between two parties over a public channel without their conversation being transmitted over the internet. The two parties use symmetric cryptography to encrypt and decrypt their messages. Diffie-Hellman key exchange is commonly found in security protocols, such as Transport Layer Security (TLS), Secure Shell (SSH) and IP Security (IPsec). 
 The Diffie-Hellman algorithm is being used to establish a shared secret that can be used for secret communications while exchanging data over a public network using the elliptic curve to generate points and get the secret key using the parameters.  
 For the sake of simplicity and practical implementation of the algorithm, we will consider only 4 variables, one prime P and G (a primitive root of P) and two private values a and b.
 P and G are both publicly available numbers. Users (say Alice and Bob) pick private values a and b and they generate a key and exchange it publicly. The opposite person receives the key and that generates a secret key, after which they have the same secret key to encrypt.
-Program:
+	Program:
 
 <html>
 <head>
@@ -336,6 +130,8 @@ document.getElementById(' kb ').innerHTML = kb ;
 
 </script>
 </html>
-            
-<pre>
-<code>
+	
+</code>
+
+</body>
+</html>
