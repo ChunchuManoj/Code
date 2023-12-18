@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Prim's Algorithm Java Program</title>
+    <style>
+        body {
+            font-family: 'Courier New', monospace;
+            white-space: pre-wrap;
+            margin: 20px;
+        }
+    </style>
+</head>
+<body>
+
+<pre>
+<code>
+Write a Java program that implements Prim’s algorithm to generate a minimum-cost spanning tree.
+
+import java.util.InputMismatchException;
+import java.util.Scanner;
+
+public class Prims {
+    private boolean unsettled[];
+    private boolean settled[];
+    private int numberofvertices;
+    private int adjacencyMatrix[][];
+    private int key[];
+    public static final int INFINITE = 999;
+    private int parent[];
+
+    public Prims(int numberofvertices) {
+        // ... (your existing constructor code)
+    }
+
+    // ... (rest of your existing Java code)
+
+    public static void main(String... arg) {
+        int adjacency_matrix[][];
+        int number_of_vertices;
+        Scanner scan = new Scanner(System.in);
+        try {
+            System.out.println("Enter the number of vertices");
+            number_of_vertices = scan.nextInt();
+            adjacency_matrix = new int[number_of_vertices + 1][number_of_vertices + 1];
+
+            System.out.println("Enter the Weighted Matrix for the graph");
+            for (int i = 1; i <= number_of_vertices; i++) {
+                for (int j = 1; j <= number_of_vertices; j++) {
+                    adjacency_matrix[i][j] = scan.nextInt();
+
+                    if (i == j) {
+                        adjacency_matrix[i][j] = 0;
+                        continue;
+                    }
+                    if (adjacency_matrix[i][j] == 0) {
+                        adjacency_matrix[i][j] = INFINITE;
+                    }
+                }
+            }
+            Prims prims = new Prims(number_of_vertices);
+            prims.primsAlgorithm(adjacency_matrix);
+            prims.printMST();
+
+        } catch (InputMismatchException inputMismatch) {
+            System.out.println("Wrong Input Format");
+        }
+        scan.close();
+    }
+}
+</code>
+</pre>
+
+</body>
+</html>
