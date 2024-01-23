@@ -24,113 +24,658 @@
 <h1>Java Programs</h1>
 
 <code>
-9. Write a program to implement the Diffie-Hellman Key Exchange mechanism using HTML and Javascript.
-Theory:
-Diffie-Hellman key exchange is a method of digital encryption that securely exchanges cryptographic keys between two parties over a public channel without their conversation being transmitted over the internet. The two parties use symmetric cryptography to encrypt and decrypt their messages. Diffie-Hellman key exchange is commonly found in security protocols, such as Transport Layer Security (TLS), Secure Shell (SSH) and IP Security (IPsec). 
-The Diffie-Hellman algorithm is being used to establish a shared secret that can be used for secret communications while exchanging data over a public network using the elliptic curve to generate points and get the secret key using the parameters.  
-For the sake of simplicity and practical implementation of the algorithm, we will consider only 4 variables, one prime P and G (a primitive root of P) and two private values a and b.
-P and G are both publicly available numbers. Users (say Alice and Bob) pick private values a and b and they generate a key and exchange it publicly. The opposite person receives the key and that generates a secret key, after which they have the same secret key to encrypt.
-	Program:
+	WEEK 1:- RAS CALCULATOR APPLICATION
 
-<html>
-<head>
-<title>Diffie-Hellman Key Exchange</title>
-<meta name="viewport" content="width=device-width, initialscale=1.0">
-</head>
-<body>
-<h1 style="text-align: center;">Diffie-Hellman Key Exchange</h1>
-<h2 style="text-align: center;">Implemented Using HTML & Javascript</h2>
-<hr>
-<table class="center">
-<tr>
-<td>Enter Public Key-P:</td>
-<td><input type="number" id="P"></td>
-</tr>
-<tr>
-<td>Enter Public Key-G :</td>
-<td><input type="number" id="G"></p>
-</td>
-</tr>
-<tr>
-<td>Enter private key for Alice:</td>
-<td><input type="number" id="A"></td>
-</tr>
-<tr>
-<td>Enter private key for Bob:</td>
-<td><input type="number" id="B"></p>
-</td>
-</tr>
-</tr>
-<tr>
-<td><button onclick="dh(A, B, P);">Get Secret Keys for Alice and Bob</button></td>
-</tr>
-<tr>
-<td>Secret key for the Alice is:</td>
-<td>
-<p id="ka"></p>
-</td>
-</tr>
-<tr>
-<td>Secret key for the Bob is:</td>
-<td>
-<p id="kb"></p>
-</td>
-</tr>    
-</table>
-   
-    </body>
-    <style>
-        .center {
-  margin-left: auto;
-  margin-right: auto;
-}
-    </style>
-
-<script type="text/javascript">
-
-// This program calculates the Key for two persons
-// using the Diffie-Hellman Key exchange algorithm
-
-// Power function to return value of a ^ b mod P
-function dh(A, B, P)
-{
-
-	if (B == 1)
-		return A;
-	else
-		return((Math.pow(A, B)) % P);
-}
-// Driver code
-var P, G, x, A, y, B, ka, kb;
-
-// Both the persons will be agreed upon the public keys G and P
-
-// A primitive root for P, G is taken
-P = document.getElementById('P').value;
-G = document.getElementById('G').value;
-
-// Alice will choose the private key a
-// a is the chosen private key
-A = document.getElementById('A').value;
-
-// Bob will choose the private key b
-// b is the chosen private key
-B = document.getElementById('B').value;
-
-// Gets the generated key
-x = power(G, A, P);
-y = power(G, B, P);
-
-// Generating the secret key after the exchange of keys
-ka = power(y, A, P); // Secret key for Alice
-kb = power(x, B, P); // Secret key for Bob
-}
-document.getElementById(' ka ').innerHTML = ka ;
-document.getElementById(' kb ').innerHTML = kb ;
-
-</script>
-</html>
+Ex no: 1 RAS Calculator Application using R Object on console.
 	
+
+AIM
+
+RAS Calculator Application using R Object on console.
+THEORY:
+
+Using R as a Calculator
+One of the most basic ways to use R is as a calculator. We can enter many math functions directly into the R Console. We will start to look at the various ways in which we can use R.
+
+Arithmetic Operators
+R can handle most simple types of math operators.
+
+Operator	Description
++	Addition
+-	Subtraction
+*	Multiplication
+/	Division
+^ or **	Exponentiation
+More Math functions.
+We can also use many other math functions. All of these are included in base R without any extra packages.
+
+
+ALGORITHM
+Step1: Start
+Step2: Input operand and operator
+Step3: Stop 
+
+PROGRAM
+
+# Addition
+5+4
+# Subtraction
+124 - 26.82 
+# Multiplication
+5*4
+# Division
+35/8
+
+# Exponentials
+3^(1/2)
+# Exponential Function
+exp(1.5)
+
+# Log base e
+log(4.481689)
+
+
+# Log base 10
+log10(1000)
+OUTPUT
+
+## [1] 9
+
+## [1] 97.18
+
+## [1] 20
+
+## [1] 4.375
+
+## [1] 1.732051
+
+
+## [1] 4.481689
+
+## [1] 1.5
+
+## [1] 3
+
+
+Ex no: 2:    RAS Calculator Application using mathematical functions on console.
+
+AIM
+
+RAS Calculator Application using mathematical functions on console.
+
+THEORY:
+More Math functions.
+We can also use many other math functions. All of these are included in base R without any extra packages.
+
+Description	R Symbol
+Square Root	sqrt
+floor(x)	floor
+\ceil(x)	ceiling
+Logarithm	log
+Exponential function, e^x	exp
+Factorial, !	factorial
+
+
+
+ALGORITHM
+Step1: Start
+Step2: Input operand and mathematical function
+Step3: Stop 
+
+PROGRAM
+
+
+# Exponentials
+3^(1/2)
+# Exponential Function
+exp(1.5)
+
+# Log base e
+log(4.481689)
+
+
+# Log base 10
+log10(1000)
+OUTPUT
+
+
+## [1] 1.732051
+
+
+## [1] 4.481689
+
+## [1] 1.5
+
+## [1] 3
+
+
+Ex no: 3:    Write an R script, to create R objects for calculator application and saved on a specified location on disk.
+
+AIM
+
+Write an R script, to create R objects for calculator application and saved on a specified location on disk.
+THEORY:
+Functions are useful when you want to perform a certain task multiple times. A function accepts input arguments and produces the output by executing valid R commands that are inside the function. In R Programming Language when you are creating a function the function name and the file in which you are creating the function need not be the same and you can have one or more functions in R.
+Switch case statements are a substitute for long if statements that compare a variable to several integral values. Switch case in R is a multiway branch statement. It allows a variable to be tested for equality against a list of values.
+Switch statement follows the approach of mapping and searching over a list of values. If there is more than one match for a specific value, then the switch statement will return the first match found of the value matched with the expression.
+Syntax:
+switch(expression, case1, case2, case3....)
+ALGORITHM
+Step1: Start
+Step2: Define four functions for addition, subtraction, multiplication, and division.
+Step3: Prompt the user to enter their choice (1 for addition, 2 for subtraction, 3 for multiplication, 4 for division).
+Step4: Prompt the user to enter the first number and the second number.
+Step5: Use the switch function to determine the selected operation based on the user's choice:
+Step6: Display the result of the operation, showing the equation and the calculated result.
+Step7: Stop 
+
+PROGRAM
+# Program make a simple calculator that can add, subtract, multiply and divide using functions
+add <- function(x, y) {
+return(x + y)
+}
+subtract <- function(x, y) {
+return(x - y)
+}
+multiply <- function(x, y) {
+return(x * y)
+}
+divide <- function(x, y) {
+return(x / y)
+}
+# take input from the user
+print("Select operation.")
+print("1.Add")
+print("2.Subtract")
+print("3.Multiply")
+print("4.Divide")
+choice = as.integer(readline(prompt="Enter choice[1/2/3/4]: "))
+num1 = as.integer(readline(prompt="Enter first number: "))
+num2 = as.integer(readline(prompt="Enter second number: "))
+operator <- switch(choice,"+","-","*","/")
+result <- switch(choice, add(num1, num2), subtract(num1, num2), multiply(num1, num2), divide(num1, num2))
+print(paste(num1, operator, num2, "=", result))
+
+
+
+
+
+OUTPUT
+
+
+[1] "Select operation."
+[1] "1.Add"
+[1] "2.Subtract"
+[1] "3.Multiply"
+[1] "4.Divide"
+Enter choice[1/2/3/4]: 
+Enter first number: 
+Enter second number: 
+[1] "NA  NA = "
+
+
+WEEK 2:- DESCRIPTIVE STATISTICS IN R
+
+Ex no: 4:    Write an R script to find basic descriptive statistics using summary
+
+AIM
+
+Write an R script to find basic descriptive statistics using summary 
+THEORY:
+
+Descriptive Analysis helps us to understand our data and is a very important part of Machine Learning. This is due to Machine Learning being all about making predictions. On the other hand, statistics is all about drawing conclusions from data, which is a necessary initial step for data   science.
+
+PROGRAM
+
+# R program to illustrate
+# Descriptive Analysis
+
+# Import the data using read.csv()
+myData = read.csv("CardioGoodFitness.csv", stringsAsFactors = F)
+# Print the first 6 rows
+print(head(myData))
+
+
+Output
+
+
+
+# R program to illustrate
+# Descriptive Analysis
+
+# Import the data using read.csv()
+myData = read.csv("CardioGoodFitness.csv",stringsAsFactors = F)
+
+# Compute the mean value
+mean = mean(myData$Age)
+print(mean)
+Output
+
+[1] 28.78889
+# R program to illustrate
+# Descriptive Analysis
+
+# Import the data using read.csv()
+myData = read.csv("CardioGoodFitness.csv",stringsAsFactors = F)
+# Compute the median value
+median = median(myData$Age)
+print(median)
+Output
+[1] 26
+# R program to illustrate
+# Descriptive Analysis
+
+# Import the library
+library(modeest)
+
+# Import the data using read.csv()
+myData = read.csv("CardioGoodFitness.csv",
+				stringsAsFactors = F)
+
+# Compute the mode value
+mode = mfv(myData$Age)
+print(mode)
+
+Output
+[1] 25
+# R program to illustrate
+# Descriptive Analysis
+
+# Import the data using read.csv()
+myData = read.csv("CardioGoodFitness.csv",
+				stringsAsFactors = F)
+
+# Calculate the maximum
+max = max(myData$Age)
+# Calculate the minimum
+min = min(myData$Age)
+# Calculate the range
+range = max - min
+
+cat("Range is:\n")
+print(range)
+
+# Alternate method to get min and max
+r = range(myData$Age)
+print(r)
+Output
+Range is:
+[1] 32
+
+[1] 18 50
+# R program to illustrate
+# Descriptive Analysis
+
+# Import the data using read.csv()
+myData = read.csv("CardioGoodFitness.csv",
+				stringsAsFactors = F)
+
+# Calculating variance
+variance = var(myData$Age)
+print(variance)
+
+Output
+[1] 48.21217
+# R program to illustrate
+# Descriptive Analysis
+
+# Import the data using read.csv()
+myData = read.csv("CardioGoodFitness.csv", stringsAsFactors = F)
+
+# Calculating Standard deviation
+std = sd(myData$Age)
+print(std)
+Output
+[1] 6.943498
+# R program to illustrate
+# Descriptive Analysis
+
+# Import the data using read.csv()
+myData = read.csv("CardioGoodFitness.csv", stringsAsFactors = F)
+
+# Calculating Quartiles
+quartiles = quantile(myData$Age)
+print(quartiles)
+Output
+0%  25%  50%  75% 100% 
+18   24   26   33   50 
+# R program to illustrate
+# Descriptive Analysis
+
+# Import the data using read.csv()
+myData = read.csv("CardioGoodFitness.csv", stringsAsFactors = F)
+
+# Calculating IQR
+IQR = IQR(myData$Age)
+print(IQR)
+Output
+[1] 9
+
+# R program to illustrate
+# Descriptive Analysis
+
+# Import the data using read.csv()
+myData = read.csv("CardioGoodFitness.csv",
+				stringsAsFactors = F)
+
+# Calculating summary
+summary = summary(myData$Age)
+print(summary)
+Output
+Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
+18.00   24.00   26.00   28.79   33.00   50.00 
+
+Ex no: 5:    Write an R script to find subset of dataset by using subset ()
+AIM
+Write an R script to find subset of dataset by using subset ()
+THEORY:
+In R Programming Language, subsetting allows the user to access elements from an object. It takes out a portion from the object based on the condition provided. There are 4 ways of subsetting in R programming. Each of the methods depends on the usability of the user and the type of object. For example, if there is a dataframe with many columns such as states, country, and population and suppose the user wants to extract states from it, then subsetting is used to do this operation. 
+
+Method 1: Subsetting in R Using [ ] Operator
+Using the ‘[ ]’ operator, elements of vectors and observations from data frames can be accessed. To neglect some indexes, ‘-‘ is used to access all other indexes of vector or data frame. 
+Example 1:  
+In this example, let us create a vector and perform subsetting using the [ ] operator. 
+
+
+
+
+# Create vector
+x <- 1:15
+# Print vector
+cat("Original vector: ", x, "\n")
+# Subsetting vector
+cat("First 5 values of vector: ", x[1:5], "\n")
+cat("Without values present at index 1, 2 and 3: ",x[-c(1, 2, 3)], "\n")
+Output: 
+Original vector:  1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 
+First 5 values of vector:  1 2 3 4 5
+Without values present at index 1, 2 and 3:  4 5 6 7 8 9 10 11 12 13 14 15
+Example 2: 
+In this example, let us use mtcars data frame present in R base package for subsetting. 
+# Dataset
+cat("Original dataset: \n")
+print(mtcars)
+ 
+# Subsetting data frame
+cat("HP values of all cars:\n")
+print(mtcars['hp'])
+ 
+# First 10 cars
+cat("Without mpg and cyl column:\n")
+print(mtcars[1:10, -c(1, 2)])
+Output: 
+Original dataset:
+                     mpg cyl  disp  hp drat    wt  qsec vs am gear carb
+Mazda RX4           21.0   6 160.0 110 3.90 2.620 16.46  0  1    4    4
+Mazda RX4 Wag       21.0   6 160.0 110 3.90 2.875 17.02  0  1    4    4
+Datsun 710          22.8   4 108.0  93 3.85 2.320 18.61  1  1    4    1
+Hornet 4 Drive      21.4   6 258.0 110 3.08 3.215 19.44  1  0    3    1
+Hornet Sportabout   18.7   8 360.0 175 3.15 3.440 17.02  0  0    3    2
+Valiant             18.1   6 225.0 105 2.76 3.460 20.22  1  0    3    1
+Duster 360          14.3   8 360.0 245 3.21 3.570 15.84  0  0    3    4
+Merc 240D           24.4   4 146.7  62 3.69 3.190 20.00  1  0    4    2
+Merc 230            22.8   4 140.8  95 3.92 3.150 22.90  1  0    4    2
+Merc 280            19.2   6 167.6 123 3.92 3.440 18.30  1  0    4    4
+Merc 280C           17.8   6 167.6 123 3.92 3.440 18.90  1  0    4    4
+Merc 450SE          16.4   8 275.8 180 3.07 4.070 17.40  0  0    3    3
+Merc 450SL          17.3   8 275.8 180 3.07 3.730 17.60  0  0    3    3
+Merc 450SLC         15.2   8 275.8 180 3.07 3.780 18.00  0  0    3    3
+Cadillac Fleetwood  10.4   8 472.0 205 2.93 5.250 17.98  0  0    3    4
+Lincoln Continental 10.4   8 460.0 215 3.00 5.424 17.82  0  0    3    4
+Chrysler Imperial   14.7   8 440.0 230 3.23 5.345 17.42  0  0    3    4
+Fiat 128            32.4   4  78.7  66 4.08 2.200 19.47  1  1    4    1
+Honda Civic         30.4   4  75.7  52 4.93 1.615 18.52  1  1    4    2
+Toyota Corolla      33.9   4  71.1  65 4.22 1.835 19.90  1  1    4    1
+Toyota Corona       21.5   4 120.1  97 3.70 2.465 20.01  1  0    3    1
+Dodge Challenger    15.5   8 318.0 150 2.76 3.520 16.87  0  0    3    2
+AMC Javelin         15.2   8 304.0 150 3.15 3.435 17.30  0  0    3    2
+Camaro Z28          13.3   8 350.0 245 3.73 3.840 15.41  0  0    3    4
+Pontiac Firebird    19.2   8 400.0 175 3.08 3.845 17.05  0  0    3    2
+Fiat X1-9           27.3   4  79.0  66 4.08 1.935 18.90  1  1    4    1
+Porsche 914-2       26.0   4 120.3  91 4.43 2.140 16.70  0  1    5    2
+Lotus Europa        30.4   4  95.1 113 3.77 1.513 16.90  1  1    5    2
+Ford Pantera L      15.8   8 351.0 264 4.22 3.170 14.50  0  1    5    4
+Ferrari Dino        19.7   6 145.0 175 3.62 2.770 15.50  0  1    5    6
+Maserati Bora       15.0   8 301.0 335 3.54 3.570 14.60  0  1    5    8
+Volvo 142E          21.4   4 121.0 109 4.11 2.780 18.60  1  1    4    2
+
+HP values of all cars:
+                     hp
+Mazda RX4           110
+Mazda RX4 Wag       110
+Datsun 710           93
+Hornet 4 Drive      110
+Hornet Sportabout   175
+Valiant             105
+Duster 360          245
+Merc 240D            62
+Merc 230             95
+Merc 280            123
+Merc 280C           123
+Merc 450SE          180
+Merc 450SL          180
+Merc 450SLC         180
+Cadillac Fleetwood  205
+Lincoln Continental 215
+Chrysler Imperial   230
+Fiat 128             66
+Honda Civic          52
+Toyota Corolla       65
+Toyota Corona        97
+Dodge Challenger    150
+AMC Javelin         150
+Camaro Z28          245
+Pontiac Firebird    175
+Fiat X1-9            66
+Porsche 914-2        91
+Lotus Europa        113
+Ford Pantera L      264
+Ferrari Dino        175
+Maserati Bora       335
+Volvo 142E          109
+
+Without mpg and cyl column:
+                   disp  hp drat    wt  qsec vs am gear carb
+Mazda RX4         160.0 110 3.90 2.620 16.46  0  1    4    4
+Mazda RX4 Wag     160.0 110 3.90 2.875 17.02  0  1    4    4
+Datsun 710        108.0  93 3.85 2.320 18.61  1  1    4    1
+Hornet 4 Drive    258.0 110 3.08 3.215 19.44  1  0    3    1
+Hornet Sportabout 360.0 175 3.15 3.440 17.02  0  0    3    2
+Valiant           225.0 105 2.76 3.460 20.22  1  0    3    1
+Duster 360        360.0 245 3.21 3.570 15.84  0  0    3    4
+Merc 240D         146.7  62 3.69 3.190 20.00  1  0    4    2
+Merc 230          140.8  95 3.92 3.150 22.90  1  0    4    2
+Merc 280          167.6 123 3.92 3.440 18.30  1  0    4    4
+Method 2: Subsetting in R Using [[ ]] Operator
+[[ ]] operator is used for subsetting of list-objects. This operator is the same as [ ] operator but the only difference is that [[ ]] selects only one element whereas [ ] operator can select more than 1 element in a single command. 
+Example 1: In this example, let us create a list and select the elements using [[]] operator. 
+
+# Create list
+ls <- list(a = 1, b = 2, c = 10, d = 20)
+ 
+# Print list
+cat("Original List: \n")
+print(ls)
+ 
+# Select first element of list
+cat("First element of list: ", ls[[1]], "\n")
+Output: 
+Original List:
+$a
+[1] 1
+$b
+[1] 2
+$c
+[1] 10
+$d
+[1] 20
+
+First element of list:  1 
+
+Example 2: In this example, let us create a list and recursively select elements using c() function
+
+# Create list
+z <- list(a = list(x = 1, y = "GFG"), b = 1:10)
+ 
+# Print list
+cat("Original list:\n")
+print(z)
+ 
+# Print GFG using c() function
+cat("Using c() function:\n")
+print(z[[c(1, 2)]])
+ 
+# Print GFG using only [[]] operator
+cat("Using [[]] operator:\n")
+print(z[[1]][[2]])
+
+Output: 
+Original list:
+$a
+$a$x
+[1] 1
+
+$a$y
+[1] "GFG"
+
+
+$b
+ [1]  1  2  3  4  5  6  7  8  9 10
+
+Using c() function:
+[1] "GFG"
+
+Using [[]] operator:
+[1] "GFG"
+Method 3: Subsetting in R Using $ Operator
+$ operator can be used for lists and data frames in R. Unlike [ ] operator, it selects only a single observation at a time. It can be used to access an element in named list or a column in data frame. $ operator is only applicable for recursive objects or list-like objects. 
+Example 1: In this example, let us create a named list and access the elements using $ operator 
+
+# Create list
+ls <- list(a = 1, b = 2, c = "Hello", d = "GFG")
+ 
+# Print list
+cat("Original list:\n")
+print(ls)
+ 
+# Print "GFG" using $ operator
+cat("Using $ operator:\n")
+print(ls$d)
+
+Output: 
+Original list:
+$a
+[1] 1
+$b
+[1] 2
+$c
+[1] "Hello"
+$d
+[1] "GFG"
+Using $ operator:
+[1] "GFG"
+
+Example 2: In this example, let us use the mtcars dataframe and select a particular column using $ operator. 
+
+# Dataset
+cat("Original data frame:\n")
+print(mtcars)
+ 
+# Access hp column
+cat("Using $ operator:\n")
+print(mtcars$hp)
+
+Output: 
+Original data frame:
+                     mpg cyl  disp  hp drat    wt  qsec vs am gear carb
+Mazda RX4           21.0   6 160.0 110 3.90 2.620 16.46  0  1    4    4
+Mazda RX4 Wag       21.0   6 160.0 110 3.90 2.875 17.02  0  1    4    4
+Datsun 710          22.8   4 108.0  93 3.85 2.320 18.61  1  1    4    1
+Hornet 4 Drive      21.4   6 258.0 110 3.08 3.215 19.44  1  0    3    1
+Hornet Sportabout   18.7   8 360.0 175 3.15 3.440 17.02  0  0    3    2
+Valiant             18.1   6 225.0 105 2.76 3.460 20.22  1  0    3    1
+Duster 360          14.3   8 360.0 245 3.21 3.570 15.84  0  0    3    4
+Merc 240D           24.4   4 146.7  62 3.69 3.190 20.00  1  0    4    2
+Merc 230            22.8   4 140.8  95 3.92 3.150 22.90  1  0    4    2
+Merc 280            19.2   6 167.6 123 3.92 3.440 18.30  1  0    4    4
+Merc 280C           17.8   6 167.6 123 3.92 3.440 18.90  1  0    4    4
+Merc 450SE          16.4   8 275.8 180 3.07 4.070 17.40  0  0    3    3
+Merc 450SL          17.3   8 275.8 180 3.07 3.730 17.60  0  0    3    3
+Merc 450SLC         15.2   8 275.8 180 3.07 3.780 18.00  0  0    3    3
+Cadillac Fleetwood  10.4   8 472.0 205 2.93 5.250 17.98  0  0    3    4
+Lincoln Continental 10.4   8 460.0 215 3.00 5.424 17.82  0  0    3    4
+Chrysler Imperial   14.7   8 440.0 230 3.23 5.345 17.42  0  0    3    4
+Fiat 128            32.4   4  78.7  66 4.08 2.200 19.47  1  1    4    1
+Honda Civic         30.4   4  75.7  52 4.93 1.615 18.52  1  1    4    2
+Toyota Corolla      33.9   4  71.1  65 4.22 1.835 19.90  1  1    4    1
+Toyota Corona       21.5   4 120.1  97 3.70 2.465 20.01  1  0    3    1
+Dodge Challenger    15.5   8 318.0 150 2.76 3.520 16.87  0  0    3    2
+AMC Javelin         15.2   8 304.0 150 3.15 3.435 17.30  0  0    3    2
+Camaro Z28          13.3   8 350.0 245 3.73 3.840 15.41  0  0    3    4
+Pontiac Firebird    19.2   8 400.0 175 3.08 3.845 17.05  0  0    3    2
+Fiat X1-9           27.3   4  79.0  66 4.08 1.935 18.90  1  1    4    1
+Porsche 914-2       26.0   4 120.3  91 4.43 2.140 16.70  0  1    5    2
+Lotus Europa        30.4   4  95.1 113 3.77 1.513 16.90  1  1    5    2
+Ford Pantera L      15.8   8 351.0 264 4.22 3.170 14.50  0  1    5    4
+Ferrari Dino        19.7   6 145.0 175 3.62 2.770 15.50  0  1    5    6
+Maserati Bora       15.0   8 301.0 335 3.54 3.570 14.60  0  1    5    8
+Volvo 142E          21.4   4 121.0 109 4.11 2.780 18.60  1  1    4    2
+
+Using $ operator:
+[1] 110 110  93 110 175 105 245  62  95 123 123 180 180 180 205 215 230  66  52
+[20]  65  97 150 150 245 175  66  91 113 264 175 335 109
+Method 4: Subsetting in R Using subset() Function
+subset() function in R programming is used to create a subset of vectors, matrices, or data frames based on the conditions provided in the parameters. 
+
+Syntax: subset(x, subset, select)
+Parameters: 
+x: indicates the object
+subset: indicates the logical expression on the basis of which subsetting has to be done
+select: indicates columns to select
+Example 1: In this example, let us use airquality data frame present in R base package and select Month where Temp < 65. 
+
+# Subsetting
+airq <- subset(airquality, Temp < 65,
+                  select = c(Month))
+ 
+# Print subset
+print(airq)
+
+Output: 
+    Month
+4       5
+5       5
+8       5
+9       5
+15      5
+16      5
+18      5
+20      5
+21      5
+23      5
+24      5
+25      5
+26      5
+27      5
+144     9
+148     9
+Example 2: In this example, let us use mtcars data frame present in R base package and selects the car with 5 gears and hp > 200. 
+
+# Subsetting
+mtc <- subset(mtcars, gear == 5 & hp > 200,
+                      select = c(gear, hp))
+ 
+# Print subset
+print(mtc)
+
+Output: 
+               gear  hp
+Ford Pantera L    5 264
+Maserati Bora     5 335
+
+
+
+	       
 </code>
 
 </body>
